@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RhythmNest | Listen.</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="a.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="music-player">
+    <h1>RhythmNest</h1>
+    <div id="playlist"></div>
+  </div>
+  <div class="audio-player">
+    <div class="player-controls">
+      <button id="prev-btn"><i class="fas fa-backward"></i></button>
+      <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+      <button id="next-btn"><i class="fas fa-forward"></i></button>
+      <div class="volume-container">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+      </div>
+      <div class="repeat-dropdown">
+        <button id="repeat-btn"><i class="fas fa-repeat"></i></button>
+        <div class="repeat-options">
+          <div data-mode="0">No Repeat</div>
+          <div data-mode="1">Repeat One</div>
+          <div data-mode="2">Repeat All</div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div id="progress"></div>
+      </div>
+      <div id="current-song">Ничего не играет, так включи.</div>
+    </div>
+  </div>
+  <button id="add-music-btn"><i class="fas fa-plus"></i></button>
+  <button id="settings-btn"><i class="fas fa-cog"></i></button>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Редакция песен</h2>
+      <input type="text" id="song-title" placeholder="Song Title">
+      <input type="text" id="song-artist" placeholder="Artist">
+      <button id="save-song">Сохранить</button>
+      <button id="delete-song">Удалить 😳</button>
+    </div>
+  </div>
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Настройки</h2>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="dark-mode">
+        <span class="checkmark"></span>
+        Режим африки
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="shuffle-playlist">
+        <span class="checkmark"></span>
+        Перефасовать плейлист
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="enable-animations">
+        <span class="checkmark"></span>
+        Включить анимации
+      </label>
+      <label class="custom-checkbox">
+        <input type="checkbox" id="show-lyrics">
+        <span class="checkmark"></span>
+        Показывать текст (Экспериментально)
+      </label>
+      <h3>Кастомизация</h3>
+      <label>
+        Первичный цвет:
+        <input type="color" id="primary-color" value="#ff6f61">
+      </label>
+      <label>
+        Вторичный цвет:
+        <input type="color" id="secondary-color" value="#6b5b95">
+      </label>
+      <h3>Button Placement</h3>
+      <label>
+        Добавить музыку кнопка расположение
+        <select id="add-music-btn-position">
+          <option value="left">Лево</option>
+          <option value="right">права</option>
+        </select>
+      </label>
+      <label>
+        Позиция кнопки настроек:
+        <select id="settings-btn-position">
+          <option value="left">Лево</option>
+          <option value="right">Право</option>
+        </select>
+      </label>
+      <button id="save-settings">Сохранить</button>
+    </div>
+  </div>
+  <input type="file" id="file-input" accept="audio/*" multiple>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
